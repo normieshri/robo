@@ -1,0 +1,38 @@
+Arduino uno 3 click and drag 
+2 resistor(res)
+one pir sensor 
+one buzzer
+led light(rgb)
+
+connect led cathode to resistor and resistor to GND
+connect led green to resistor and resistor to 13
+
+connect buzz sensor positive to resistor and resistor to GND
+connect buzz negative to 12
+ 
+
+pir sensor signal to 2
+pir sensor power to 5v(bottom of uno board)
+pir sensor ground to ground(bottom of uno board)
+
+//code 
+
+int pirsensor = 0;
+void setup()
+{
+  pinMode(2,INPUT);
+  pinMode(12,OUTPUT);
+  pinMode(13,OUTPUT);
+}
+
+void loop()
+{
+ pirsensor = digitalRead(2);
+ if( pirsensor == HIGH)
+ {
+   digitalWrite(13 , HIGH);
+   tone(12,500,500);
+   
+ }
+  digitalWrite(13,LOW);
+}
